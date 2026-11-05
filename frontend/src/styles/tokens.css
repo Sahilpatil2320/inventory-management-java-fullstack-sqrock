@@ -1,0 +1,43 @@
+/* Design tokens: a deep teal-ink shell on a cool paper canvas. Colour is reserved for meaning:
+   teal = primary action, amber = low stock, red = out of stock / destructive, green = healthy. */
+:root {
+  --ink: #0f2a2e;
+  --ink-2: #17393f;
+  --ink-3: #21474e;
+  --on-ink: #d6e4e2;
+  --on-ink-muted: #8fa9a7;
+
+  --canvas: #f2f5f4;
+  --surface: #ffffff;
+  --surface-sunken: #f7f9f8;
+  --line: #dde4e2;
+  --line-strong: #c3cfcc;
+
+  --text: #15272a;
+  --muted: #566d71;
+
+  --accent: #0e7c6b;
+  --accent-strong: #0a6153;
+  --accent-tint: #e3f3f0;
+
+  --ok: #1b7f4b;
+  --ok-tint: #e2f4ea;
+  --warn: #9a5a06;
+  --warn-tint: #fcefd6;
+  --bad: #b42318;
+  --bad-tint: #fce8e6;
+  --info: #2457a6;
+  --info-tint: #e6eef9;
+
+  --radius-s: 5px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+
+  --shadow-1: 0 1px 2px rgba(15, 42, 46, 0.07);
+  --shadow-2: 0 10px 30px rgba(15, 42, 46, 0.18);
+
+  --sidebar-w: 252px;
+  --topbar-h: 60px;
+
+  --font: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}

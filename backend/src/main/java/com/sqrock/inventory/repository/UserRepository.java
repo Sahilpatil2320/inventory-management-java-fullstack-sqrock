@@ -1,0 +1,14 @@
+package com.sqrock.inventory.repository;
+
+import com.sqrock.inventory.entity.Role;
+import com.sqrock.inventory.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmailIgnoreCase(String email);
+    boolean existsByEmailIgnoreCase(String email);
+    boolean existsByEmailIgnoreCaseAndIdNot(String email, Long id);
+    long countByRoleAndActiveTrue(Role role);
+}

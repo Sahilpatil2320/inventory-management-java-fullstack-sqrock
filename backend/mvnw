@@ -1,0 +1,20 @@
+#!/bin/sh
+# Minimal Maven Wrapper: downloads Apache Maven (version from .mvn/wrapper/maven-wrapper.properties)
+# into ~/.m2/wrapper on first use, then runs it. Usage: ./mvnw spring-boot:run
+set -eu
+BASEDIR=$(cd "$(dirname "$0")" && pwd)
+PROPS="$BASEDIR/.mvn/wrapper/maven-wrapper.properties"
+URL=$(sed -n 's/^distributionUrl=//p' "$PROPS" | tr -d '\r')
+NAME=$(basename "$URL" -bin.zip)
+DIST_DIR="${MAVEN_USER_HOME:-$HOME/.m2}/wrapper/dists/$NAME"
+MVN="$DIST_DIR/$NAME/bin/mvn"
+if [ ! -x "$MVN" ]; then
+  echo "Downloading $URL"
+  mkdir -p "$DIST_DIR"
+  TMP="$DIST_DIR/maven.zip"
+  if command -v curl >/dev/null 2>&1; then curl -fsSL "$URL" -o "$TMP"; else wget -q "$URL" -O "$TMP"; fi
+  unzip -q -o "$TMP" -d "$DIST_DIR"
+  rm -f "$TMP"
+  chmod +x "$MVN"
+fi
+exec "$MVN" "$@"
